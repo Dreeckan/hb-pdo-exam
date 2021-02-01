@@ -23,5 +23,5 @@ foreach ($data as $beanie) {
         
     $id = $connection->lastInsertId();
         
-    echo 'Erreur '.$beanie[0].' inséré à avec l\'id '. $id;
+    echo 'Erreur lors de l\'insertion de la donnée : '.$beanie[0].' inséré à avec l\'id '. $id;
 }
