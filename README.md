@@ -54,18 +54,18 @@ Liste des exercices
 ## 4. Exécution d'une requête préparée (INSERT) (3 points)
 
 - Dans le fichier `4-insert-prepare.php`
-  - [ ] Utiliser la connexion créée dans le fichier `includes/connect.php` pour insérer les données du tableau `$data` dans la table `category` à l'aide d'une requête préparée
-  - [ ] En cas d'erreur de l'insertion, afficher un message d'erreur `Erreur lors de l'insertion de la donnée : ` et afficher l'index `name` du tableau (afin de retrouver la ligne provoquant l'erreur).
-- [ ] Faire un commit
+  - [X] Utiliser la connexion créée dans le fichier `includes/connect.php` pour insérer les données du tableau `$data` dans la table `category` à l'aide d'une requête préparée
+  - [X] En cas d'erreur de l'insertion, afficher un message d'erreur `Erreur lors de l'insertion de la donnée : ` et afficher l'index `name` du tableau (afin de retrouver la ligne provoquant l'erreur).
+- [X] Faire un commit
 
 ## 5. Exécution d'une requête préparée (SELECT) (4 points)
 
 - Dans le fichier `5-select-prepare.php`
-  - [ ] Utiliser la connexion créée dans le fichier `includes/connect.php` pour récupérer les données contenues dans la table `product` et les mettre dans le tableau `$data` à l'aide d'une requête préparée
-    - [ ] Les données doivent être dans un tableau associatif ou un objet (voir les constantes de PDO `PDO::FETCH_`, il n'y a pas besoin de créer des classes ici)
-    - [ ] /!\ Contrairement au tableau précédent, nous voulons également récupérer le contenu des catégories, **s'il y en a**
-  - [ ] Compléter l'affichage HTML déjà présent dans le fichier (les données doivent s'afficher)
-- [ ] Faire un commit
+  - [X] Utiliser la connexion créée dans le fichier `includes/connect.php` pour récupérer les données contenues dans la table `product` et les mettre dans le tableau `$data` à l'aide d'une requête préparée
+    - [X] Les données doivent être dans un tableau associatif ou un objet (voir les constantes de PDO `PDO::FETCH_`, il n'y a pas besoin de créer des classes ici)
+    - [X] /!\ Contrairement au tableau précédent, nous voulons également récupérer le contenu des catégories, **s'il y en a**
+  - [X] Compléter l'affichage HTML déjà présent dans le fichier (les données doivent s'afficher)
+- [X] Faire un commit
 
 ## 6. Mise à jour de la table de liaison (product_has_category) (3 points)
 
