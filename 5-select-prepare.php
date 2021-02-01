@@ -3,6 +3,17 @@
 include 'includes/connect.php';
 
 $data = [];
+
+$sql = "SELECT * FROM product";
+$stmt = $connection->prepare($sql);
+$isDone = $stmt->execute();
+
+if (!$isDone) {
+    throw new Exception('Erreur');
+}
+
+$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <table>
@@ -15,11 +26,16 @@ $data = [];
     </tr>
     <?php foreach ($data as $beanie) { ?>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?= $beanie['name']?></td>
+            <td><?= $beanie['description']?></td>
+            <td><?= $beanie['price']?></td>
+            <?php
+            if ($beanie['category'] == null) {
+                echo '<td></td>';
+            } else {
+                echo '<td>'.$beanie['category'].'</td>';
+            }?>
+            <td><?= $beanie['stock']?></td>
         </tr>
     <?php } ?>
 </table>
