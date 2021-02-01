@@ -4,11 +4,6 @@ include 'includes/connect.php';
 
 $data = [];
 
-
-include 'includes/connect.php';
-
-$data = [];
-
 $sql = "SELECT * FROM product";
 $statement = $connection->query($sql); // Récupération d'un objet PDOStatement
 $results = $statement->fetchAll(PDO::FETCH_ASSOC);
