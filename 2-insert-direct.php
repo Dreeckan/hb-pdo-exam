@@ -55,6 +55,6 @@ foreach ($data as $beanie) {
     $isDone = $connection->exec($sql);
 
     if (!$isDone) {
-        throw new Exception('Erreur lors de l\'insertion de la donnée : ');
+        throw new Exception('Erreur lors de l\'insertion de la donnée : ' . $name);
     }
 }
