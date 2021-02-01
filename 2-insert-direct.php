@@ -45,3 +45,17 @@ Matière: 32 % Laine, 32 % Polyamide, 30 % Viscose, 3 % Cashmere 3 % Autres fibr
         'stock'       => 1,
     ],
 ];
+
+
+foreach ($data as $row) {
+    $sql = 'INSERT INTO `product`(`name`, `description`, `updated_at`, `price`, `stock`) VALUES ("'.$row['name'].'", "'.$row['description'].'", NOW(), "'.$row['price'].'", "'.$row['stock'].'")';
+
+
+    $stmt = $connection->exec($sql);
+
+    var_dump($sql);
+
+    if (!$stmt) {
+        throw new Exception("Erreur lors de l'inscription de la donnée" .$row['name']);
+    }
+}

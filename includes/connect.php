@@ -1,6 +1,5 @@
 <?php
 
-include 'db.inc.php';
 
 $dsn = 'mysql:dbname=exam_audrey_pdo;host=127.0.0.1';
 $user = 'root'; // Utilisateur par défaut
