@@ -12,12 +12,17 @@ $data = [];
         <th>Prix</th>
         <th>En stock</th>
     </tr>
-    <?php foreach ($data as $beanie) { ?>
+    <?php
+    $sql = "SELECT * FROM product";
+    $statement = $connection->query($sql);
+    foreach ($statement->fetchAll(PDO::FETCH_ASSOC) as $beanie) { ?>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?= $beanie['name'] ?></td>
+            <td><?= $beanie['description'] ?></td>
+            <td><?= $beanie['price'] ?></td>
+            <td><?= $beanie['stock'] ?></td>
         </tr>
     <?php } ?>
 </table>
+
+<?php
