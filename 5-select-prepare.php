@@ -2,8 +2,10 @@
 
 include 'includes/connect.php';
 
-$sql = "SELECT product.name AS name, description, price, category.name AS category, stock FROM product 
-        JOIN category ON product.id = category.id";
+$sql = "SELECT product.name as name, description, price, category.name as category, stock
+FROM product
+        LEFT JOIN product_has_category ON product.id = product_has_category.id_product
+        LEFT JOIN category ON category.id = product_has_category.id_category";
     $statement = $connection->prepare($sql);
     $isDone = $statement->execute();
 
