@@ -39,8 +39,7 @@ $data = $results;
                                    
                     <td>
                         ' . $beanie['stock'] . '
-                    </td>
-       
+                    </td>     
                 </tr>';
     }
     ?>
