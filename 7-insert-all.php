@@ -39,3 +39,67 @@ Matière:
         ],
     ],
 ];
+
+foreach ($data as $beanie) {
+
+    // Insertion des bonnets dans la table product
+    $name = $beanie['name'];
+    $description = $beanie['description'];
+    $price = $beanie['price'];
+    $stock = $beanie['stock'];
+
+    $sql = "INSERT INTO product(name, description, updated_at, price, stock) VALUES (:name, :description, NOW(), :price, :stock)";
+    $stmt = $connection->prepare($sql);
+
+    $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+    $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+    $stmt->bindParam(':price', $price, PDO::PARAM_STR);
+    $stmt->bindParam(':stock', $stock, PDO::PARAM_INT);
+    $isDone = $stmt->execute();
+
+    if (!$isDone) {
+        throw new Exception("Erreur lors de l'insertion de la donnée : " . $name);
+    }
+
+    // Récupération de l'id du bonnet en cours
+
+    $id_beanie = $connection->lastInsertId();
+
+    // Récupération de la table category
+
+    $category = [];
+
+    $sql = "SELECT * FROM category";
+    $stmt = $connection->prepare($sql);
+    $isDone = $stmt->execute();
+
+    if (!$isDone) {
+        throw new Exception('Erreur');
+    }
+
+    $category = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Etablir correspondance entre $beanie['caterories] et les id_category
+
+    $id_category = [];
+    foreach ($beanie['categories'] as $category) {
+        $i=0; //compteur pour parcourir les id_category
+
+        $id_category[] = array_search($category, $beanie['categories']);
+
+        // Insertion des id product et id category dans la table product_has_category
+    
+        $sql = "INSERT IGNORE INTO product_has_category(id_category, id_product) VALUES (:id_category, :id_product)";
+        $stmt = $connection->prepare($sql);
+    
+        $stmt->bindParam(':id_category', $id_category[$i], PDO::PARAM_INT);
+        $stmt->bindParam(':id_product', $id_beanie, PDO::PARAM_INT);
+        
+        $i++;
+        
+        $isDone = $stmt->execute();
+        if (!$isDone) {
+            throw new Exception("Erreur");
+        }
+    }
+}

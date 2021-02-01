@@ -18,6 +18,7 @@ if (!$isDone) {
 
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
 // Récupération des categories dans un tableau category
 
 $category = [];
@@ -32,15 +33,16 @@ if (!$isDone) {
 
 $category = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
 // Ajout des catégories aux produits du tableau data
 
-foreach ($data as $beanie) {
-    $sql = "INSERT IGNORE INTO product_has_category(id_category, id_product) VALUES (:id_category, :id_product)";
-    $stmt = $connection->prepare($sql);
+$sql = "INSERT IGNORE INTO product_has_category(id_category, id_product) VALUES (:id_category, :id_product)";
+$stmt = $connection->prepare($sql);
 
+foreach ($data as $beanie) {
     $id_category = random_int(1, count($category));
-    $stmt->bindParam(':id_category', $id_category, PDO::PARAM_STR);
-    $stmt->bindParam(':id_product', $data['id'], PDO::PARAM_STR);
+    $stmt->bindParam(':id_category', $id_category, PDO::PARAM_INT);
+    $stmt->bindParam(':id_product', $data['id'], PDO::PARAM_INT);
     
     $isDone = $stmt->execute();
     if (!$isDone) {
