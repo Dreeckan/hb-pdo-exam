@@ -4,10 +4,10 @@ include 'includes/connect.php';
 
 $data = [
     [
-        'name'        => 'Miki Corduroy & Fleece sand',
-        'price'       => 84.90,
-        'stock'       => 1,
-        'categories'  => [
+        'name' => 'Miki Corduroy & Fleece sand',
+        'price' => 84.90,
+        'stock' => 1,
+        'categories' => [
             'Bonnets',
             'Casquettes',
             'Chapka',
@@ -21,7 +21,7 @@ Matière: 100 % Coton, Fleece 100 % Polyester, Strap 100 % Cuir
     Couleur : beige",
     ],
     [
-        'name'        => 'The Sheridan olive',
+        'name' => 'The Sheridan olive',
         'description' => "Oubliez le froid et affichez le style vintage que vous affectionnez, avec ce sympathique bonnet péruvien vert olive conçu par la marque américaine spécialisée Coal. Décoré d’un motif géométrique traditionnel, il est complété d’un pompon assorti et de tresses aux extrémités.
 Matière:
 
@@ -31,11 +31,48 @@ Matière:
     Genre : homme
     Forme : peruvien
     Couleur : vert",
-        'price'       => 25.90,
-        'stock'       => 1,
-        'categories'  => [
+        'price' => 25.90,
+        'stock' => 1,
+        'categories' => [
             'Bonnets',
             'Casquettes',
         ],
     ],
 ];
+
+$sql = 'INSERT INTO category(name) VALUES (:name)';
+foreach ($data as $beanie) {
+    $name = $beanie['name'];
+    $stmt = $connection->prepare($sql);
+    $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+    $ret = $stmt->execute();
+
+    if (!$ret) {
+        throw new Exception('Erreur lors de l\'insertion de la donnée : ' . $beanie['name']);
+    }
+    $id = $connection->lastInsertId();
+
+
+    $sql = 'SELECT category.id FROM category 
+            WHERE category.name = :name';
+    $stmt = $connection->prepare($sql);
+
+    foreach ($beanie['categories'] as $cat) {
+        $stmt->bindParam(':name', $cat, PDO::PARAM_STR);
+        $ret = $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $idCat = $results;
+var_dump($idCat[0]["id"]);
+
+        $sql = `INSERT INTO product_has_category(id_category, id_product) VALUES ('$idCat[0]["id"]', '$id')`;
+        $count = $connection->exec($sql);
+        if (!$count) {
+            exit("Erreur lors de l\'insertion de la donnée : " . $beanie['name']);
+
+        }
+
+
+    }
+}
+
