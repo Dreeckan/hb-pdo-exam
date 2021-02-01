@@ -53,3 +53,4 @@ foreach ($data as $beanie) {
 }
 
 //j'suis beaucoup trop perdu/pas assez pratiqué la dessus :/
+// le 6 m'a perdu mais le 7 était pire encore
