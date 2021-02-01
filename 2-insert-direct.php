@@ -55,14 +55,14 @@ Matière: 100 % Coton Biologique
     Genre : femme
     Forme : long
     Couleur : gris
-    Taille : 56', 'NOW()', '34.23', '1'), 
+    Taille : 56', NOW(), '34.23', '1'), 
     
     ('Bonnet - Headsock in recycled yarn black', 'Affichez une allure originale avec ce sympathique bonnet long noir, qui tient bien en place grâce à ses côtes verticales. Il est composé d’un mélange très doux de fibres provenant en partie de bouteilles en plastique recyclées.
 Matière: 50 % Acrylique, 50 % Polyester
     Reference : SEE01364
     Genre : femme
     Forme : long
-    Couleur : noir', 'NOW()', '25.90', '1'), 
+    Couleur : noir', NOW(), '25.90', '1'), 
     
     ('Bonnet - Rada camel', 'Chez la marque suédoise Sätila, l’environnement et la qualité ne sont pas pris à la légère, notamment avec ce magnifique bonnet long tricoté en Suède avec 41 % de fibres recyclées, combinant la laine, la viscose et le cachemire pour un résultat doux et bien chaud.
 Matière: 32 % Laine, 32 % Polyamide, 30 % Viscose, 3 % Cashmere 3 % Autres fibres
@@ -70,7 +70,7 @@ Matière: 32 % Laine, 32 % Polyamide, 30 % Viscose, 3 % Cashmere 3 % Autres fibr
     Genre : femme
     Forme : long
     Couleur : beige
-    Taille : 56', 'NOW()', '34.23', '1')";
+    Taille : 56', NOW(), '34.23', '1')";
     
 $countAffected = $connection->exec($sql);
 
