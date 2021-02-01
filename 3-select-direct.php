@@ -24,5 +24,3 @@ $data = [];
         </tr>
     <?php } ?>
 </table>
-
-<?php
