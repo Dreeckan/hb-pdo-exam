@@ -3,7 +3,7 @@
 include 'db.inc.php';
 
 try {
-    $connection = new PDO($dsn, $dbUser, $dbPass);
+    $connection = new PDO($dbDsn, $dbUser, $dbPass);
 } catch (PDOException $e) {
-    echo('Connexion échouée : ' . $e->getMessage());
+    exit('Connexion échouée : ' . $e->getMessage());
 }
