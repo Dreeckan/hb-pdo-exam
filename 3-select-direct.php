@@ -15,7 +15,8 @@ $beanie = $connection->query($sql);
         <th>Prix</th>
         <th>En stock</th>
     </tr>
-    <?php foreach ($beanies->fetchAll(PDO::FETCH_ASSOC) as $beanie) {
+    <?php
+    foreach ($beanie->fetchAll(PDO::FETCH_ASSOC) as $data) {
         echo '<tr>
             <td>' . $data['name'] . '</td>
             <td>' . $data['description'] . '</td>
