@@ -71,8 +71,8 @@ Liste des exercices
 
 - Dans le fichier `6-update-categories.php`
   - [X] Utiliser la connexion créée dans le fichier `includes/connect.php` pour récupérer les données contenues dans la table `product`. Ne récupérer **que** les bonnets n'ayant pas de catégories (indice SQL : `LEFT JOIN` et `IS NULL` se révèlent utiles ici, mais ne sont pas obligatoires)
-  - [ ] Utiliser la connexion créée dans le fichier `includes/connect.php` pour récupérer les données contenues dans la table `category`.
-  - [ ] Ajouter dans la table `product_has_category` une catégorie par bonnet minimum (indice SQL : `INSERT IGNORE INTO` peut être pratique)
+  - [X] Utiliser la connexion créée dans le fichier `includes/connect.php` pour récupérer les données contenues dans la table `category`.
+  - [X] Ajouter dans la table `product_has_category` une catégorie par bonnet minimum (indice SQL : `INSERT IGNORE INTO` peut être pratique)
   - [ ] Vérifier que les entrées existent bien et sont correctes dans PhpMyAdmin
 - [ ] Faire un commit
 
@@ -81,10 +81,10 @@ Liste des exercices
 Nous allons maintenant ajouter des bonnets supplémentaires **et** les lier à des catégories dans un même élan.
 
 - Dans le fichier `7-insert-all.php`
-  - [ ] Utiliser la connexion créée dans le fichier `includes/connect.php` pour insérer les données du tableau `$data` dans la table `category` à l'aide d'une requête préparée
-  - [ ] En cas d'erreur de l'insertion, afficher un message d'erreur `Erreur lors de l'insertion de la donnée : ` et afficher l'index `name` du tableau (afin de retrouver la ligne provoquant l'erreur).
-  - [ ] Ajouter chacun des bonnets et le lien entre bonnets et catégories :
-    - [ ] Pour chaque bonnet, faire une première requête d'insertion, puis récupérer l'identifiant grâce à la méthode `lastInsertId`
+  - [X] Utiliser la connexion créée dans le fichier `includes/connect.php` pour insérer les données du tableau `$data` dans la table `category` à l'aide d'une requête préparée
+  - [X] En cas d'erreur de l'insertion, afficher un message d'erreur `Erreur lors de l'insertion de la donnée : ` et afficher l'index `name` du tableau (afin de retrouver la ligne provoquant l'erreur).
+  - [X] Ajouter chacun des bonnets et le lien entre bonnets et catégories :
+    - [X] Pour chaque bonnet, faire une première requête d'insertion, puis récupérer l'identifiant grâce à la méthode `lastInsertId`
     - [ ] Pour chaque catégorie liée au bonnet, 
       - [ ] Faire une requête pour récupérer l'identifiant de la catégorie
       - [ ] Faire une requête pour insérer la liaison entre le bonnet la catégorie

@@ -51,3 +51,5 @@ foreach ($data as $beanie) {
 
     $idBeanie = $connection->lastInsertId();
 }
+
+//j'suis beaucoup trop perdu/pas assez pratiqué la dessus :/

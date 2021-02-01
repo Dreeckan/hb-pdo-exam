@@ -28,3 +28,5 @@ $isDone = $statement->execute();
 
 $statement->setFetchMode(PDO::FETCH_ASSOC);
 $data2 = $statement->fetchAll();
+
+// J'ai rien compris a l'énoncé :(
