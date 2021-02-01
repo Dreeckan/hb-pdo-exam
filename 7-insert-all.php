@@ -39,3 +39,18 @@ Matière:
         ],
     ],
 ];
+
+$sql = "INSERT INTO category (`name`) VALUES (:name, :description, :price, :stock) ";
+$stmt = $connection->prepare($sql);
+$ret = $stmt->execute();
+if ($stmt === false) {
+    exit("Erreur lors de l'insertion de la donnée :");
+}
+
+foreach ($data as $beanie) {
+    $stmt->bindParam(':name', $beanie[0], PDO::PARAM_STR);
+    $stmt->bindParam(':description', $beanie[1], PDO::PARAM_STR);
+    $stmt->bindParam(':price', $beanie[2], PDO::PARAM_STR);
+    $stmt->bindParam(':stock', $beanie[3], PDO::PARAM_STR);
+    var_dump($stmt->lastInsertId());
+}
