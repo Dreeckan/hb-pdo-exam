@@ -45,3 +45,13 @@ Matière: 32 % Laine, 32 % Polyamide, 30 % Viscose, 3 % Cashmere 3 % Autres fibr
         'stock'       => 1,
     ],
 ];
+
+foreach ($data as $beanie) {
+        $sql = "INSERT INTO `product`(`name`, `description`, `updated_at`, `price`, `stock`) 
+                VALUES ('$beanie[name]', '$beanie[description]', NOW(), '$beanie[price]', '$beanie[stock]')";
+        $isDone = $connection->exec($sql);
+    
+    if (!$isDone) {
+        throw new Exception("Erreur lors de l'insertion de la donnée : $data[name]");
+        }
+}

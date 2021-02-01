@@ -39,3 +39,18 @@ Matière:
         ],
     ],
 ];
+
+foreach ($data as $beanie) {
+    $sql = "INSERT INTO `product`(`name`, `description`, `updated_at`, `price`, `stock`) 
+            VALUES ('$beanie[name]', '$beanie[description]', NOW(), '$beanie[price]', '$beanie[stock]')";
+    $isDone = $connection->exec($sql);
+
+    if (!$isDone) {
+        throw new Exception("Erreur lors de l'insertion de la donnée : $data[name]");
+        }
+
+    $idBeanie = $connection->lastInsertId();
+}
+
+//j'suis beaucoup trop perdu/pas assez pratiqué la dessus :/
+// le 6 m'a perdu mais le 7 était pire encore
