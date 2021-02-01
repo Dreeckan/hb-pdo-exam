@@ -2,7 +2,20 @@
 
 include 'includes/connect.php';
 
-$data = [];
+$sql = "SELECT product.name'name', description, price, category.name'categorie', stock FROM product 
+        LEFT JOIN product_has_category ON product.id = product_has_category.id_product
+        LEFT JOIN category ON category.id = product_has_category.id_category";
+$statement = $connection->prepare($sql);
+$countAffected = $statement->execute();
+
+if (!$countAffected) {
+        throw new Exception('Erreur');
+}
+$statement->setFetchMode(PDO::FETCH_ASSOC);
+$results = $statement->fetchAll();
+
+$data = $results;
+
 ?>
 
 <table>
@@ -13,13 +26,28 @@ $data = [];
         <th>Catégories</th>
         <th>En stock</th>
     </tr>
-    <?php foreach ($data as $beanie) { ?>
+
+<?php foreach ($data as $beanie) {
+    echo '
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    <?php } ?>
+            <td>
+                '.$beanie['name'].'
+            </td>   
+            <td>
+                '.$beanie['description'].'
+            </td>      
+            <td>
+                '.$beanie['price'].'
+            </td>                        
+            <td>
+                '.$beanie['categorie'].'
+            </td>
+            <td>
+                '.$beanie['stock'].'
+            </td>
+        </tr>';
+} 
+
+?>
+
 </table>
