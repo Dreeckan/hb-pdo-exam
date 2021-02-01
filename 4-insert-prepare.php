@@ -10,7 +10,8 @@ $data = [
     'Bandeaux',
 ];
 
-$sql = "INSERT INTO `category` (`name`) VALUES (:name)";
+$sql = "INSERT INTO `category` (`name`) 
+        VALUES (:name)";
 
 $statement = $connection->prepare($sql);
 

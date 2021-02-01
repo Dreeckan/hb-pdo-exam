@@ -4,9 +4,10 @@ include 'includes/connect.php';
 
 $data = [];
 
-$sql = "SELECT * FROM product";
-    $statement = $connection->query($sql);
-    $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+$sql = "SELECT * 
+        FROM product";
+$statement = $connection->query($sql);
+$data = $statement->fetchAll(PDO::FETCH_ASSOC);
     
 ?>
 

@@ -70,7 +70,7 @@ Liste des exercices
 ## 6. Mise à jour de la table de liaison (product_has_category) (3 points)
 
 - Dans le fichier `6-update-categories.php`
-  - [ ] Utiliser la connexion créée dans le fichier `includes/connect.php` pour récupérer les données contenues dans la table `product`. Ne récupérer **que** les bonnets n'ayant pas de catégories (indice SQL : `LEFT JOIN` et `IS NULL` se révèlent utiles ici, mais ne sont pas obligatoires)
+  - [X] Utiliser la connexion créée dans le fichier `includes/connect.php` pour récupérer les données contenues dans la table `product`. Ne récupérer **que** les bonnets n'ayant pas de catégories (indice SQL : `LEFT JOIN` et `IS NULL` se révèlent utiles ici, mais ne sont pas obligatoires)
   - [ ] Utiliser la connexion créée dans le fichier `includes/connect.php` pour récupérer les données contenues dans la table `category`.
   - [ ] Ajouter dans la table `product_has_category` une catégorie par bonnet minimum (indice SQL : `INSERT IGNORE INTO` peut être pratique)
   - [ ] Vérifier que les entrées existent bien et sont correctes dans PhpMyAdmin
