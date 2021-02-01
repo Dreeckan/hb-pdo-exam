@@ -4,7 +4,9 @@ include 'includes/connect.php';
 
 $data = [];
 
-$sql = "SELECT * FROM product LEFT JOIN product_has_category ON product.id = product_has_category.id_product";
+$sql = "SELECT product.name as name, description, price, category.name as category, stock FROM product 
+LEFT JOIN product_has_category ON product.id = product_has_category.id_product 
+LEFT JOIN category ON product_has_category.id_category = category.id";
 $stmt = $connection->prepare($sql);
 $isDone = $stmt->execute();
 
@@ -30,10 +32,10 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><?= $beanie['description']?></td>
             <td><?= $beanie['price']?></td>
             <?php
-            if ($beanie['id_category'] == null) {
+            if ($beanie['category'] == null) {
                 echo '<td></td>';
             } else {
-                echo '<td>'.$beanie['id_category'].'</td>';
+                echo '<td>'.$beanie['category'].'</td>';
             }?>
             <td><?= $beanie['stock']?></td>
         </tr>
