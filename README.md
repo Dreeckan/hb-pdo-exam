@@ -39,17 +39,17 @@ Liste des exercices
 
 - Dans le fichier `2-insert-direct.php`
   - [X] Utiliser la connexion créée dans le fichier `includes/connect.php` pour insérer les données du tableau `$data` dans la table `product` à l'aide d'une requête directe de PDO (méthode `exec`)
-    - [ ] /!\ Attention, pour le champ `updated_at`, toujours utiliser la valeur `NOW()` lors de l'insertion
-  - [ ] En cas d'erreur de l'insertion, afficher un message d'erreur `Erreur lors de l'insertion de la donnée : ` et afficher l'index `name` du tableau (afin de retrouver la ligne provoquant l'erreur).
-- [ ] Faire un commit
+    - [X] /!\ Attention, pour le champ `updated_at`, toujours utiliser la valeur `NOW()` lors de l'insertion
+  - [X] En cas d'erreur de l'insertion, afficher un message d'erreur `Erreur lors de l'insertion de la donnée : ` et afficher l'index `name` du tableau (afin de retrouver la ligne provoquant l'erreur).
+- [X] Faire un commit
 
 ## 3. Exécution d'une requête directe (SELECT) (2 points)
 
 - Dans le fichier `3-select-direct.php`
-  - [ ] Utiliser la connexion créée dans le fichier `includes/connect.php` pour récupérer les données contenues dans la table `product` et les mettre dans le tableau `$data` à l'aide d'une requête directe (méthode `query`)
-    - [ ] Les données doivent être dans un tableau associatif ou un objet (voir les constantes de PDO `PDO::FETCH_`, il n'y a pas besoin de créer des classes ici)
-  - [ ] Compléter l'affichage HTML déjà présent dans le fichier (les données doivent s'afficher)
-- [ ] Faire un commit
+  - [X] Utiliser la connexion créée dans le fichier `includes/connect.php` pour récupérer les données contenues dans la table `product` et les mettre dans le tableau `$data` à l'aide d'une requête directe (méthode `query`)
+    - [X] Les données doivent être dans un tableau associatif ou un objet (voir les constantes de PDO `PDO::FETCH_`, il n'y a pas besoin de créer des classes ici)
+  - [X] Compléter l'affichage HTML déjà présent dans le fichier (les données doivent s'afficher)
+- [X] Faire un commit
   
 ## 4. Exécution d'une requête préparée (INSERT) (3 points)
 
