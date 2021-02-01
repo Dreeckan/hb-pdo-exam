@@ -51,7 +51,7 @@ foreach ($data as $beanie) {
     $description = $beanie['description'];
     $price = $beanie['price'];
     $stock = $beanie['stock'];
-    $sql = "INSERT INTO product(name, description, updated_at, price, stock) VALUES ($name, $description, NOW(), $price, $stock)";
+    $sql = "INSERT INTO product(name, description, updated_at, price, stock) VALUES ('$name', '$description', NOW(), '$price', '$stock')";
     $isDone = $connection->exec($sql);
 
     if (!$isDone) {
